@@ -18,7 +18,7 @@ jobs:
     name: Deploy
     uses: subhamay-bhattacharyya-gha/tf-deploy-multi-reusable-wf/.github/workflows/terraform-deploy.yaml@feature/GHA-0019-add-platform-based-multi
     with:
-      cloud-provider: platform
+      cloud-provider: snowflake
       tflint-ver: ${{ vars.TF_LINT_VER }}
       backend-type: remote
       aws-region: ${{ vars.AWS_REGION }}
