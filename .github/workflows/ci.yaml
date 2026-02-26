@@ -28,7 +28,7 @@ jobs:
 
   ci:
     name: CI
-    uses: subhamay-bhattacharyya-gha/tf-ci-reusable-wf/.github/workflows/ci.yaml@feature/GHA-0037-add-platform-based-multi
+    uses: subhamay-bhattacharyya-gha/tf-ci-reusable-wf/.github/workflows/ci.yaml@main
     with:
       cloud-provider: snowflake
       tflint-ver: ${{ vars.TF_LINT_VER }}
