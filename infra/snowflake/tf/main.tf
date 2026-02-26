@@ -68,7 +68,7 @@ module "dynamic_table" {
 # Seed Data
 # ----------------------------------------------------------------------------
 module "seed" {
-  source = "github.com/subhamay-bhattacharyya-tf/terraform-snowflake-seed-data?ref=feature/TFMOD-0002-implement-terraform-snowf"
+  source = "github.com/subhamay-bhattacharyya-tf/terraform-snowflake-seed-data?ref=main"
 
   for_each = var.enable_seed_data ? jsondecode(file("${path.module}/seed-data/seed.json")) : {}
 
