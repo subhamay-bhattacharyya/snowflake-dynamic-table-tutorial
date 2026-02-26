@@ -1,51 +1,78 @@
-# -- infra/snowflake/tf/variables.tf (Child Module)
+# -- infra/snowflake/tf/variables.tf
 # ============================================================================
-# Snowflake Module Variables
+# Variables
 # ============================================================================
 
-variable "warehouse_config" {
-  description = "Warehouse configuration map"
-  type        = map(any)
+# ----------------------------------------------------------------------------
+# Project Configuration
+# ----------------------------------------------------------------------------
+variable "project_code" {
+  description = "Project code prefix for resource naming"
+  type        = string
+  default     = ""
 }
 
-variable "database_config" {
-  description = "Database configuration map"
-  type        = map(any)
-  default     = {}
+variable "snowflake_config_path" {
+  description = "Path to Snowflake configuration JSON file"
+  type        = string
+  default     = "../../../input-jsons/snowflake/config.json"
 }
 
-variable "schema_config" {
-  description = "Schema configuration map"
-  type        = map(any)
-  default     = {}
+# ----------------------------------------------------------------------------
+# Snowflake Connection
+# ----------------------------------------------------------------------------
+variable "snowflake_organization_name" {
+  description = "Snowflake organization name"
+  type        = string
+  default     = ""
 }
 
-variable "file_format_config" {
-  description = "File format configuration map"
-  type        = map(any)
-  default     = {}
+variable "snowflake_account_name" {
+  description = "Snowflake account name"
+  type        = string
+  default     = ""
 }
 
-variable "storage_integration_config" {
-  description = "Storage integration configuration map"
-  type        = map(any)
-  default     = {}
+variable "snowflake_user" {
+  description = "Snowflake user for authentication"
+  type        = string
+  default     = ""
 }
 
-variable "stage_config" {
-  description = "Stage configuration map"
-  type        = map(any)
-  default     = {}
+variable "snowflake_warehouse" {
+  description = "Default Snowflake warehouse"
+  type        = string
+  default     = ""
 }
 
-variable "table_config" {
-  description = "Table configuration map"
-  type        = map(any)
-  default     = {}
+# ----------------------------------------------------------------------------
+# Snowflake Roles
+# ----------------------------------------------------------------------------
+variable "db_provisioner_role" {
+  description = "Role for database/schema provisioning"
+  type        = string
+  default     = ""
 }
 
-variable "snowpipe_config" {
-  description = "Snowpipe configuration map"
-  type        = map(any)
-  default     = {}
+variable "warehouse_provisioner_role" {
+  description = "Role for warehouse provisioning"
+  type        = string
+  default     = ""
+}
+
+variable "data_object_provisioner_role" {
+  description = "Role for data object (tables) provisioning"
+  type        = string
+  default     = ""
+}
+
+
+
+# ----------------------------------------------------------------------------
+# Seed Data
+# ----------------------------------------------------------------------------
+variable "enable_seed_data" {
+  description = "Enable seeding sample data into tables"
+  type        = bool
+  default     = false
 }
