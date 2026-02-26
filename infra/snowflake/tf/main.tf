@@ -59,7 +59,8 @@ module "dynamic_table" {
   depends_on = [
     module.database_schemas,
     module.table,
-    module.warehouse
+    module.warehouse,
+    module.seed
   ]
 }
 
